@@ -1,0 +1,6 @@
+framework module Pods_RxSwiftUsageInsteadOfDelegatesUITests {
+  umbrella header "Pods-RxSwiftUsageInsteadOfDelegatesUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

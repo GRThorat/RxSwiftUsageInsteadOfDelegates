@@ -1,0 +1,6 @@
+framework module Pods_RxSwiftUsageInsteadOfDelegates {
+  umbrella header "Pods-RxSwiftUsageInsteadOfDelegates-umbrella.h"
+
+  export *
+  module * { export * }
+}

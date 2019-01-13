@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,84 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="RxSwiftUsageInsteadOfDelegates" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click On below Button to Edit Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stL-34-DE2">
+                                <rect key="frame" x="62" y="333" width="251" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GfU-Zv-cY5">
+                                <rect key="frame" x="172.5" y="362" width="30" height="30"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="editButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DYt-xL-KOo"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="stL-34-DE2" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="1IE-DI-7CE"/>
+                            <constraint firstItem="stL-34-DE2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="CkV-zK-CG7"/>
+                            <constraint firstItem="GfU-Zv-cY5" firstAttribute="centerX" secondItem="stL-34-DE2" secondAttribute="centerX" id="F0G-eG-295"/>
+                            <constraint firstItem="GfU-Zv-cY5" firstAttribute="top" secondItem="stL-34-DE2" secondAttribute="bottom" constant="8" id="GZ1-g2-a0n"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="detailTextLabel" destination="stL-34-DE2" id="m3G-uu-PPE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="106" y="99"/>
+        </scene>
+        <!--Edit View Controller-->
+        <scene sceneID="eeQ-7K-EKZ">
+            <objects>
+                <viewController storyboardIdentifier="EditViewController" id="9GD-UK-c9c" customClass="EditViewController" customModule="RxSwiftUsageInsteadOfDelegates" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LNa-yp-sOn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Your Text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9nh-xY-ony">
+                                <rect key="frame" x="16" y="151" width="343" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="9GD-UK-c9c" id="ByI-zc-zn4"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3b-pW-kMt">
+                                <rect key="frame" x="310" y="189" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitClicked:" destination="9GD-UK-c9c" eventType="touchUpInside" id="T31-uI-IS6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9nh-xY-ony" firstAttribute="top" secondItem="orj-eC-y04" secondAttribute="top" constant="131" id="5wg-6l-As0"/>
+                            <constraint firstItem="9nh-xY-ony" firstAttribute="leading" secondItem="orj-eC-y04" secondAttribute="leading" constant="16" id="9al-67-tni"/>
+                            <constraint firstItem="d3b-pW-kMt" firstAttribute="top" secondItem="9nh-xY-ony" secondAttribute="bottom" constant="8" id="YFL-Mj-BjK"/>
+                            <constraint firstItem="d3b-pW-kMt" firstAttribute="trailing" secondItem="9nh-xY-ony" secondAttribute="trailing" id="z4Y-z3-0Mu"/>
+                            <constraint firstItem="orj-eC-y04" firstAttribute="trailing" secondItem="9nh-xY-ony" secondAttribute="trailing" constant="16" id="zQl-jH-2oQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="orj-eC-y04"/>
+                    </view>
+                    <connections>
+                        <outlet property="detailTextField" destination="9nh-xY-ony" id="TL5-iI-d1B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g0e-lK-4QM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="746" y="99"/>
         </scene>
     </scenes>
 </document>
